@@ -1,18 +1,49 @@
 buildscript {
     repositories {
-        jcenter()
-        maven { url "http://code.newtronlabs.com:8081/artifactory/libs-release-local" }
+        google()
+        //jcenter() //已经废弃
+        mavenCentral()  //替换jcenter
+        mavenLocal() //本地仓库
+        maven { url 'https://jitpack.io' } //jitpack 可用于引用github和gitee
+        gradlePluginPortal()
+        maven {
+            url uri('./repository') // 添加Maven的本地依赖
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "http://code.newtronlabs.com:8081/artifactory/libs-release-local"
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "https://newtronlabs.jfrog.io/artifactory/libs-release-local"
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
-        classpath "com.newtronlabs.android:plugin:3.0.0"
+        classpath 'com.android.tools.build:gradle:7.4.2'
+        //classpath "com.newtronlabs.android:plugin:3.0.0"
+        classpath "com.newtronlabs.android:plugin:5.0.2"
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
-        maven { url "http://code.newtronlabs.com:8081/artifactory/libs-release-local" }
+        google()
+        //jcenter() //已经废弃
+        mavenCentral()  //替换jcenter
+        mavenLocal() //本地仓库
+        maven { url 'https://jitpack.io' } //jitpack 可用于引用github和gitee
+        gradlePluginPortal()
+        maven {
+            url uri('./repository') // 添加Maven的本地依赖
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "http://code.newtronlabs.com:8081/artifactory/libs-release-local"
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "https://newtronlabs.jfrog.io/artifactory/libs-release-local"
+        }
     }
 }
 
